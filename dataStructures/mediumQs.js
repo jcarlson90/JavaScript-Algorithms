@@ -41,10 +41,35 @@ const removeDuplicates = function(nums) {
 // duplicates.
 
 
-// JUMP GAME
+class Solution {
+    /**
+     * @param {string} s
+     * @param {string} t
+     * @return {boolean}
+     */
+    isAnagram(s, t) {
+        if (s.length != t.length) {
+            return false;
+        }
 
-// You are given an integer array nums. You are initially positioned at the 
-// array's first index, and each element in the array represents your maximum 
-// jump length at that position.
-// Return true if you can reach the last index, or false otherwise.
+        const countS = {};
+        const countT = {};
+
+        for (let i = 0; i < s.length; i++) {
+            countS[s[i]] = 1 + (countS[s[i]]
+|| 0);
+            countT[t[i]] = 1 + (countT[t[i]]
+|| 0);
+        }
+
+        for (const key in countS){
+            if (countS[key] !== countT[key]) {
+
+            }
+        }
+
+        return true;  
+    }
+}
+
 
