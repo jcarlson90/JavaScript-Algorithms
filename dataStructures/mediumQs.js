@@ -71,5 +71,51 @@ class Solution {
         return true;  
     }
 }
+// TWO INTEGER SUM 
 
+class Solution {
+    twoSum(numbers, target) {
+        let l = 0;
+        let r = numbers.length - 1;
+
+        while (l < r) {
+            const curSum = numbers[l] + numbers[r];
+
+            if (curSum > target) {
+                r--;
+            } else if (curSum < target) {
+                l++;
+            } else {
+                return [l + 1, r + 1];
+            }
+        }
+
+        return [];
+    }
+}
+
+// BALLANCED BINARY TREE
+
+class Solution {
+    isBalanced(root) {
+        return this.dfs(root)[0] === 1;
+    }
+
+    dfs(root) {
+        if (!root) {
+            return [1, 0];
+        }
+
+        const left = this.dfs(root.left);
+        const right = this.dfs(root.right);
+
+        const balanced =
+            left[0] === 1 &&
+            right[0] === 1 &&
+            Math.abs(left[1] - right[1]) <= 1;
+        const height = 1 + Math.max(left[1], right[1]);
+
+        return [balanced ? 1 : 0, height];
+    }
+}
 
