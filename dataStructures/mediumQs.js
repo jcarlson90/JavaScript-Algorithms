@@ -182,3 +182,11 @@ var longestCommonPrefix = function(strs) {
 
     return pref;    
 };
+
+
+var lengthOfLastWord = function(s) {
+    remove_white_space=s.trim()
+    arr = remove_white_space.split(" ") 
+    len = arr.length -1
+    return (arr[len].length);
+   };
